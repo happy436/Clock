@@ -7,14 +7,26 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/script.js" defer></script>
     <script src="./js/jquery-3.6.0.min.js" defer></script>
+    <script src="./js/vanilla-tilt.min.js" defer></script>
+    <script defer>
+        try{
+        VanillaTilt.init(document.querySelector(".clock"), {
+		max: 25,
+		speed: 400
+	});}
+        catch(e){
+            
+        }
+        
+    </script>
     <link rel="shortcut icon" href="./img/iconmonstr-clock-thin-240.png" type="image/x-icon">
     <title>Clock</title>
 </head>
 <body class="colorful">
     <div class="toggleClass" onclick="toggle()"></div>
-    <div class="container">
-        <div class="box">
-            <div class="clock">
+    <div class="container" >
+        <div class="box" >
+            <div class="clock" data-tilt>
                 <div class="hour">
                     <div class="hr" id="hr"></div>
                 </div>
@@ -27,6 +39,6 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>
