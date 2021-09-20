@@ -17,15 +17,26 @@ setInterval(() => {
 })
 
 
-function toggle(){
-    if($('body').attr('class') === 'colorful'){
-        $('body').removeClass('colorful');
-        $('body').addClass('dark')
-    } else if($('body').attr('class') === 'dark'){
-        $('body').removeClass('dark');
-        $('body').addClass('light')
-    } else if($('body').attr('class') === 'light'){
-        $('body').removeClass('light');
-        $('body').addClass('colorful')
+const themeBtn = $('.toggleClass');
+const selectedTheme = localStorage.getItem('color');
+
+if(selectedTheme === null){
+    $('body').addClass('colorful');
+}else{
+    $('body').removeClass();
+    $('body').addClass(selectedTheme);
+}
+
+themeBtn.click(changeTheme)
+let i = 0;
+
+function changeTheme(){    
+    const theme = ['colorful', 'dark', 'light'];
+    i++;
+    if(i > theme.length - 1){
+        i = 0;
     }
+    $('body').removeClass();
+    $('body').addClass(theme[i]);
+    localStorage.setItem('color',theme[i])
 }
